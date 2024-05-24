@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
     // Initialize the AnimationController with a 2-second duration
     _animationController = AnimationController(
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 3),
       vsync: this,
     );
 
@@ -35,9 +35,9 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     ));
 
     // Start the animation after a 1-second delay
+    _playLiftOpenSound();
     Future.delayed(Duration(seconds: 1), () {
       _animationController.forward();
-      _playLiftOpenSound();
     });
 
     // Navigate to the home screen when the animation completes
@@ -56,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   }
 
   void _playLiftOpenSound() async {
-    await _audioPlayer.play(AssetSource('audio/door.mp3'));  // Play the audio file
+    await _audioPlayer.play(AssetSource('audio/elevator-ding.mp3'));  // Play the audio file
   }
 
   @override
